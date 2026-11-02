@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ArrowCounterClockwiseIcon, FlowerIcon, HeartIcon, PlayIcon, SparkleIcon } from '@phosphor-icons/react';
 import { littleExtras } from './content';
 import './little-extras.css';
@@ -7,6 +7,42 @@ export default function LittleExtras() {
   const videoRef = useRef(null);
   const [status, setStatus] = useState('idle');
   const [error, setError] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    let visible = false;
+    let active = true;
+
+    function syncPlayback() {
+      video.autoplay = visible && !document.hidden;
+      if (video.autoplay) {
+        video.play().catch((reason) => {
+          if (active && visible && !document.hidden && reason.name !== 'AbortError') setStatus('paused');
+        });
+      } else video.pause();
+    }
+
+    // Restart explicitly because mobile WebKit can pause after a native loop.
+    function repeat() {
+      video.currentTime = 0;
+      syncPlayback();
+    }
+
+    const observer = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting && entry.intersectionRatio >= 0.2;
+      syncPlayback();
+    }, { threshold: 0.2 });
+    observer.observe(video);
+    video.addEventListener('ended', repeat);
+    document.addEventListener('visibilitychange', syncPlayback);
+    return () => {
+      active = false;
+      observer.disconnect();
+      video.removeEventListener('ended', repeat);
+      document.removeEventListener('visibilitychange', syncPlayback);
+      video.pause();
+    };
+  }, []);
 
   function play() {
     const video = videoRef.current;
@@ -21,7 +57,7 @@ export default function LittleExtras() {
     <figure className="conversation-film reveal">
       <div className="film-topline"><span><HeartIcon size={12} weight="fill"/> UM PEDACINHO DA GENTE</span><span className="speed-sticker">50× <SparkleIcon size={12}/></span></div>
       <div className="conversation-screen">
-        <video ref={videoRef} controls muted playsInline preload="none" poster={littleExtras.videoPoster} aria-label="Vídeo de uma prévia da nossa conversa no WhatsApp" aria-describedby="conversation-caption" onPlaying={() => { setStatus('playing'); setError(false); }} onPause={() => setStatus(videoRef.current?.ended ? 'ended' : 'paused')} onEnded={() => setStatus('ended')} onError={() => setError(true)}>
+        <video ref={videoRef} controls muted playsInline preload="none" poster={littleExtras.videoPoster} aria-label="Vídeo de uma prévia da nossa conversa no WhatsApp" aria-describedby="conversation-caption" onPlaying={() => { setStatus('playing'); setError(false); }} onPause={() => setStatus(videoRef.current?.ended ? 'ended' : 'paused')} onError={() => setError(true)}>
           <source src={littleExtras.video} type="video/mp4"/>
           Seu navegador não conseguiu mostrar esse vídeo. <a href={littleExtras.video}>Abrir o vídeo da conversa</a>.
         </video>

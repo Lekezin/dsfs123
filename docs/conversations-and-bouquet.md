@@ -6,7 +6,7 @@
 - Arquivo usado: `public/media/nossas-conversas-50x.mp4`.
 - Inspeção local: 2,6 segundos, 1920 × 1080 pixels. Os quadros inspecionados mostram uma prévia de conversa do WhatsApp, não uma gravação longa de todo o histórico. Essa limitação foi comunicada ao Gustavo.
 - O MP4 foi copiado sem recodificar ou alterar a velocidade. O texto “50×” vem da descrição do Gustavo; `playbackRate` permanece em 1 para não acelerar outra vez o arquivo.
-- O teaser tem reprodução por clique, controles nativos, pausa, tela cheia, continuação e repetição. Começa mudo, preservando a música ambiente da página.
+- O teaser começa automaticamente quando pelo menos 20% do vídeo aparece na tela e repete em loop. Pausa fora da tela ou com a aba oculta e retoma ao voltar. Mantém controles nativos, pausa, tela cheia e um botão de play caso o navegador bloqueie a reprodução automática. Começa mudo, preservando a música ambiente da página.
 - O quadro de capa foi extraído do meio do próprio vídeo, evitando o quadro preto inicial, e salvo em `public/media/conversas-poster.webp`.
 
 ## GIF da sogra
