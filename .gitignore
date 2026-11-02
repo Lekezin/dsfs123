@@ -1,0 +1,18 @@
+node_modules/
+dist/
+dist-*/
+.vite/
+test-results/
+*.log
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+desktop.ini
+coverage/
+.verification/
+# Preparações usadas só na máquina original; os recursos prontos estão incluídos.
+scripts/prepare-assets.mjs
+scripts/prepare-extras.mjs
+scripts/prepare-cutouts.mjs

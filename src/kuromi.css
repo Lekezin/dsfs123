@@ -1,0 +1,8 @@
+.kuromi{border:0;border-radius:0;box-shadow:none;filter:drop-shadow(0 6px 8px #30263718);object-fit:contain;background:transparent}
+.gate-intro .kuromi{width:105px}.gate-mascot .kuromi{width:83px;max-height:148px;margin:0 auto}.gate-loading .kuromi{width:105px}
+.hero-sticker .kuromi{border:0;border-radius:0;background:transparent;filter:drop-shadow(0 2px 0 #f8eefccc) drop-shadow(0 8px 10px #1b112333);box-shadow:none;animation:kuromi-float 5s ease-in-out infinite}
+.photo-kuromi .kuromi{border:0;border-radius:0;box-shadow:none;filter:drop-shadow(0 6px 7px #30263730);animation:kuromi-float 5.5s ease-in-out infinite reverse}
+.letter-kuromi{border:0;border-radius:0;background:transparent}
+@keyframes kuromi-float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-7px) rotate(2deg)}}
+.motion-paused .kuromi,.motion-paused .stars>svg,.motion-paused .hero-scroll>svg,.ticker.motion-paused>div{animation-play-state:paused}
+@media(max-width:700px){.gate-mascot .kuromi{width:72px;max-height:128px}.gate-intro .kuromi,.gate-loading .kuromi{width:95px}}

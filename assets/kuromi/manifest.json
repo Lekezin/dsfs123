@@ -1,0 +1,30 @@
+{
+  "classica": {
+    "path": "/decor/kuromi-classica-sem-fundo.webp",
+    "width": 600,
+    "height": 706,
+    "alpha": true,
+    "source": "assets/kuromi/classica-sem-fundo.png"
+  },
+  "amigos": {
+    "path": "/decor/kuromi-amigos-sem-fundo.webp",
+    "width": 600,
+    "height": 653,
+    "alpha": true,
+    "source": "assets/kuromi/amigos-sem-fundo.png"
+  },
+  "bruxinha": {
+    "path": "/decor/kuromi-bruxinha-sem-fundo.webp",
+    "width": 600,
+    "height": 630,
+    "alpha": true,
+    "source": "assets/kuromi/bruxinha-sem-fundo.png"
+  },
+  "roxinha": {
+    "path": "/decor/kuromi-roxinha-sem-fundo.webp",
+    "width": 600,
+    "height": 600,
+    "alpha": true,
+    "source": "assets/kuromi/roxinha-sem-fundo.png"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "hero": {
+    "source": "assets/source/hero-cutout.png",
+    "optimized": "public/photos/hero-cutout.webp",
+    "before": 1197945,
+    "after": 189666
+  },
+  "bouquet": {
+    "source": "assets/source/buque-para-sogra.gif",
+    "optimized": "public/media/buque-para-sogra.webp",
+    "before": 2983809,
+    "after": 1333562,
+    "originalFrames": 95,
+    "frames": 90,
+    "durationMs": 6340
+  }
+}

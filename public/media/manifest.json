@@ -1,0 +1,12 @@
+{
+  "video": {
+    "width": 1920,
+    "height": 1080,
+    "duration": 2.6
+  },
+  "gif": {
+    "width": 480,
+    "height": 480,
+    "pages": 95
+  }
+}
